@@ -3,8 +3,8 @@ title: "Evil Hangman"
 date: "04/15/2023"
 description: "A simple hangman game, where the computer switches the works behind the scence depending on how many"
 ---
-
-# Tech Stack
+<h1 class="blog-titles">Evil Hangman</h1>
+## Tech Stack 💻
     - C
     - Vim
     - gdb

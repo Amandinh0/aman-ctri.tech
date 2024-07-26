@@ -27,6 +27,12 @@ body {
   color: #07995a;
 }
 
+.blog-titles{
+  color: #07995a;
+  font-weight: bold;
+
+}
+
 
 .postCard {
   padding: 14px;

@@ -9,7 +9,30 @@ of college, I can really appreciate it more. A small blog on why I think everyon
 
 C is a fundamental programming language that has influenced many others and is crucial for understanding how computers work at a low level. While languages like Python are highly abstracted and user-friendly and seem faster, knowing what is going on behind the scences, or just having an idea will make one a lot better at programming
 
-## Python V C
+## Python vs C
 
-I learned Python to get better at techniocal interviews. Its concise notation really makes it ideal for 
+I learned Python to get better at technical interviews. Its concise notation really makes it ideal for coding up complex
+algorithms quickly. But one of the biggest reasons I felt comfortable using it, is because I had an idea what is going on behind the scence. Someone that jsut start with python knows how a loop works
+
+```python
+for x in range(5):
+    print(x)
+
+```
+
+I definitely wouldn't try to find out more than this. But there is some kind of manual check and iterations going on.
+
+```C
+for(int i = 0; i < 10, i++){
+    //execute your code
+}
+```
+
+The second method:
+    - Starts with i at 0. check if it is less than 10, increments it 
+    - it does this until the second statment is not satisfied
+
+## Why is this important?
+
+One may say that this is a very trivial thing which is taken care by Python. Which is true, there are a lot more ocmplex things that higher level languages and frameworks take care of. But from my experience, I have always been able to write better code and debug code better when I kind of have an idea of how things are working behind the scences. 
 

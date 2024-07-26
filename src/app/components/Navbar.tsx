@@ -8,8 +8,10 @@ const Navbar: React.FC = () => {
   return (
     <div className='flex justify-between items-center'>
         
-            <h1 className="text-4xl font-bold custom-text mt-8 mb-4 mr-12">Aman Chhetri</h1>
-            <Nav.Root className=''>
+            <a href="/" className="text-4xl font-bold custom-text mt-8 mb-4 mr-12">
+            Aman Chhetri
+            </a>
+            <Nav.Root className='list-none'>
             <Nav.List className='flex space-x-4'>
                 <Nav.Item>
                 <Nav.Link asChild>

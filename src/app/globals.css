@@ -64,6 +64,7 @@ ul{
   /* margin: initial; */
   /* padding: initial; */
   list-style-position: inside;
+  list-style-type: none;
 }
 
 ol {

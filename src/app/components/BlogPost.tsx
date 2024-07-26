@@ -18,9 +18,9 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
         <div className='post'>
             <div className='flex flex-row justify-between'>
             <h3 className='text-m font-bold font-serif custom-text'>{blog.title}</h3>
-            <h3>{blog.date}</h3>
+            <h3 className='text-m font-bold font-serif'>{blog.date}</h3>
             </div>
-            <h3>{blog.description}</h3>
+            <h3 className='text-m font-serif'>{blog.description}</h3>
         </div>
     </Link>
   );

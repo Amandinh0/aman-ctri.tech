@@ -16,11 +16,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  let footer = (
+   <footer className="text-center">
+    Made with 🖤
+   </footer>
+  )
   return (
     <>
     <html lang="en">
       <body className={inter.className}>
-        <div className="mx-auto max-w-2xl">
+        <div className="main-container mx-auto max-w-2xl">
           <Navbar/>
           <Header/>
           {children}

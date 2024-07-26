@@ -11,13 +11,84 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: #FBFFF1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-@layer utilities {
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+} */
+
+.custom-text {
+  color: #07995a;
 }
 
 
+.postCard {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border-radius: 14px;
+  height: 100%;
+  border: 1px solid transparent;
+  transition-duration: 200ms;
+}
+
+/* styles.css */
+h1 {
+  @apply text-2xl; /* Only if you want to apply a specific Tailwind size */
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg
+}
+
+/* blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+  margin: initial;
+} */
+
+/* styles.css */
+ul{
+  list-style: initial; /* or use 'disc' for ul and 'decimal' for ol if preferred */
+  /* margin: initial; */
+  /* padding: initial; */
+  list-style-position: inside;
+}
+
+ol {
+  list-style: decimal;
+  margin: initial;
+  padding: initial;
+  list-style-position:inherit;
+
+}
+
+/* global.css */
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+  margin: revert; /* or use specific values if you prefer */
+}
+
+
+ul::marker, ol::marker {
+  all: unset !important;
+}
+
+.main-container {
+  flex: 1;
+}
+
+.pdf-container {
+  width: 100%;
+  height: 100vh; 
+}

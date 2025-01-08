@@ -6,7 +6,7 @@ const Resume = () => {
     <h2 className='custom-text text-xl font-bold font-serif'>Lastest Resume:</h2>
     <div className="pdf-container">
       <iframe
-        src="/AmanChhetriCSResume.pdf" // Update with the path to your PDF
+        src="/Aman_Chhetri_Resume.pdf" // Update with the path to your PDF
         style={{ width: '100%', height: '100vh' }}
       />
     </div>

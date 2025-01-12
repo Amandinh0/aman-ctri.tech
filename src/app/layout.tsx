@@ -25,8 +25,10 @@ export default function RootLayout({
         <div className="main-container mx-auto max-w-2xl">
           <Navbar/>
           <Header/>
-          {children}
-          <footer className="text-center">
+    
+            {children}
+         
+          <footer className="text-center mt-4">
             Made with 🖤
           </footer>
         </div>

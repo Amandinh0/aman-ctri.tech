@@ -16,16 +16,17 @@ const Navbar: React.FC = () => {
                 <Nav.Item>
                 <Nav.Link asChild>
                     <Link href="https://www.linkedin.com/in/aman-chh" rel="noopener noreferrer" target="_blank">
-                    <LinkedInLogoIcon className='custom-text h-10 w-10 mt-8 mb-4 ml-12'/>
+                    <LinkedInLogoIcon className='custom-text h-10 w-10 mt-8 mb-4 ml-12 hover:scale-110 transition-transform'/>
                     </Link>
                 </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link href="https://github.com/Amandinh0" rel="noopener noreferrer" target="_blank"><GitHubLogoIcon className='custom-text h-10 w-10 mt-8 mb-4'/></Nav.Link>
+                <Nav.Link href="https://github.com/Amandinh0" rel="noopener noreferrer" target="_blank">
+                  <GitHubLogoIcon className='custom-text h-10 w-10 mt-8 mb-4 hover:scale-110 transition-transform'/></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                 <Nav.Link href="/resume">
-                <BackpackIcon className='custom-text h-10 w-10 mt-8 mb-4'/>
+                <BackpackIcon className='custom-text h-10 w-10 mt-8 mb-4 hover:scale-110 transition-transform'/>
                 </Nav.Link>
                 </Nav.Item>
             </Nav.List>

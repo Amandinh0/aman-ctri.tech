@@ -25,7 +25,6 @@ export default function RootLayout({
         <div className="main-container mx-auto max-w-2xl">
           <Navbar/>
           <Header/>
-    
             {children}
          
           <footer className="text-center mt-4">

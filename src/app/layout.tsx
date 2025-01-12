@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Head from 'next/head';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -19,22 +18,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  let footer = (
-   <footer className="text-center">
-    Made with 🖤
-   </footer>
-  )
+  
   return (
-    <>
     <html lang="en">
       <body className={inter.className}>
         <div className="main-container mx-auto max-w-2xl">
           <Navbar/>
           <Header/>
           {children}
-          </div>
-        </body>
+          <footer className="text-center">
+            Made with 🖤
+          </footer>
+        </div>
+      </body>
     </html>
-    </>
   );
 }

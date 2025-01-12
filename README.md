@@ -1,17 +1,21 @@
-## Welcome to my personal website
-This is my personal website where I will showcase my projects, hobbies and other fun things from my day to day life
+# Personal Portfolio
 
-### Tech Stack💻
-TypeScript
+A modern, responsive personal portfolio website built with Next.js and TypeScript, featuring Markdown files for content management.
 
-ReactJS
+## 🚀 Tech Stack
 
-TailwindCSS
+- **Framework:** [Next.js](https://nextjs.org/) (React)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [TailwindCSS](https://tailwindcss.com/)
+- **Content:** Markdown files with [react-markdown](https://github.com/remarkjs/react-markdown)
+- **Deployment:** [Vercel](https://vercel.com)
 
-NextJS
+## ✨ Features
 
-## Deploy on Vercel (For laters)
+- Responsive design
+- Static content management with Markdown Files as Blogs
+- Type-safe development with TypeScript
+- Modern UI with TailwindCSS
+- Server-side rendering with Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

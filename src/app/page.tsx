@@ -8,7 +8,7 @@ export default function Home() {
   const blogsMetadata = getBlogMetadata('blogs')
 
   return (
-    <div className="h-screen mx-auto max-w-4xl p-4">
+    <div className="h-screen mx-auto max-w-4xl">
       <div className="flex flex-col ">
         <AboutMe/>
         <BlogList/>

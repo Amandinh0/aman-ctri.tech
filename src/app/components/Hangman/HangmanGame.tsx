@@ -7,22 +7,32 @@ import wordsList from '@/app/words/words.json';
 const MAX_MISTAKES = 6;
 
 const getRandomWord = (): HangmanWord => {
-  const randomIndex = Math.floor(Math.random() * wordsList.length);
-  const word = wordsList[randomIndex];
+  const initialWord = wordsList[0];
   return {
-    word: word.word.toUpperCase(),
-    hint: word.hint,
-    category: word.category
+    word: initialWord.word.toUpperCase(),
+    hint: initialWord.hint,
+    category: initialWord.category
   };
 };
 
 export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const [gameState, setGameState] = useState<HangmanGameState>({
+    const [currentScore, setCurrentScore] = useState(0);
+  const [gameState, setGameState] = useState<HangmanGameState>(() => ({
     currentWord: getRandomWord(),
     guessedLetters: [],
     mistakes: 0,
     gameStatus: 'playing'
-  });
+  }));
+
+  const getNextWord = () => {
+    const randomIndex = Math.floor(Math.random() * wordsList.length);
+    const word = wordsList[randomIndex];
+    return {
+      word: word.word.toUpperCase(),
+      hint: word.hint,
+      category: word.category
+    };
+  };
 
   const handleGuess = (letter: string) => {
     if (gameState.guessedLetters.includes(letter)) return;
@@ -35,6 +45,10 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
       .split('')
       .every(char => newGuessedLetters.includes(char));
     
+    if (isWon) {
+      setCurrentScore(currentScore + 1);
+    }
+
     setGameState({
       ...gameState,
       guessedLetters: newGuessedLetters,
@@ -46,7 +60,7 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div role="dialog" className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg max-w-lg w-full">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold">Hangman Game</h2>
@@ -69,7 +83,9 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
 
         {/* Keyboard */}
         <div className="grid grid-cols-7 gap-1">
-          {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
+          {'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*'
+            .split('')
+            .map((letter) => (
             <button
               key={letter}
               onClick={() => handleGuess(letter)}
@@ -86,16 +102,35 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
         {/* Game status */}
         <div className="mt-4">
           <p>Mistakes: {gameState.mistakes} / {MAX_MISTAKES}</p>
+          <p>Your score: {currentScore}</p>
           {gameState.gameStatus !== 'playing' && (
             <div className="text-center mt-4">
-              <p>{gameState.gameStatus === 'won' ? 'Congratulations!' : 'Game Over!'}</p>
+              <p>
+                {gameState.gameStatus === 'won' 
+                  ? 
+                  <>
+                      Congratulations! Score: {currentScore}
+                    </> 
+                  : 'Game Over!'}
+              </p>
+              {gameState.gameStatus === 'lost' && (
+                <p className="mt-2 text-red-600">
+                  The word was: {gameState.currentWord.word}<br/>
+                  Your score: {currentScore}
+                </p>
+              )}
               <button 
-                onClick={() => setGameState({
-                  currentWord: getRandomWord(),
-                  guessedLetters: [],
-                  mistakes: 0,
-                  gameStatus: 'playing'
-                })}
+                onClick={() => {
+                  if (gameState.gameStatus === 'lost') {
+                    setCurrentScore(0);
+                  }
+                  setGameState({
+                    currentWord: getNextWord(),
+                    guessedLetters: [],
+                    mistakes: 0,
+                    gameStatus: 'playing'
+                  });
+                }}
                 className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
               >
                 Play Again

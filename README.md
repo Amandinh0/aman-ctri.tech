@@ -1,6 +1,8 @@
 # Personal Portfolio
 
-A modern, responsive personal portfolio website built with Next.js and TypeScript, featuring Markdown files for content management.
+A modern, responsive personal portfolio website built with Next.js and TypeScript, featuring Markdown files for content management. Try out the Tech Hangman game at the top - a fun twist on the classic game with programming languages and tech concepts! 🎮 Can you achieve a perfect score? 🏆
+
+
 
 ## 🚀 Tech Stack
 

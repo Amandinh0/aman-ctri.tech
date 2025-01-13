@@ -15,7 +15,7 @@ const BlogList: React.FC = () => {
 
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col sm:w-full w-[95%] mx-auto'>
             <h2 className='text-3xl font-bold font-serif mb-2 custom-text'>Projects/Publications:</h2>
             {blogMetadata.map((blog, blogIndex) => {
                 return(

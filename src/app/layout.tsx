@@ -51,7 +51,7 @@ export default function RootLayout({
           <Header/>
             {children}
          
-          <footer className="text-center mt-4">
+          <footer className="text-center mt-4 mb-8">
             Made with 🖤
           </footer>
         </div>

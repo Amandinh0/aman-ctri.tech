@@ -6,7 +6,7 @@ import React from 'react';
 
 const Navbar: React.FC = () => {
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center sm:w-full w-[95%] mx-auto'>
         
             <a href="/" className="text-4xl font-bold custom-text mt-8 mb-4 mr-12">
             Aman Chhetri

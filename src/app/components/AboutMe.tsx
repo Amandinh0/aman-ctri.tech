@@ -2,7 +2,7 @@ import { BackpackIcon, StarIcon, TriangleRightIcon } from "@radix-ui/react-icons
 
 export default function AboutMe() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col sm:w-full w-[95%] mx-auto">
       <h3 className="custom-text text-3xl font-bold font-serif mb-2">
         About me
       </h3>

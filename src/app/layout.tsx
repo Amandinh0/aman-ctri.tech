@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const geist = localFont({ 
+  src: '../../public/Geist/Geist-VariableFont_wght.ttf',
+  variable: '--font-geist',
+});
 export const metadata: Metadata = {
   title: "Aman's Personal Website",
   description: "Aman Chhetri Personal Webiste Portfolio",
@@ -45,7 +47,7 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={geist.className}>
         <div className="main-container mx-auto max-w-2xl">
           <Navbar/>
           <Header/>

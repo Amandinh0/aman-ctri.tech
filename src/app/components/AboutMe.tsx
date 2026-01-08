@@ -3,7 +3,7 @@ import { TriangleRightIcon } from "@radix-ui/react-icons";
 export default function AboutMe() {
   return (
     <div className="flex flex-col items-start">
-      <h3 className="custom-text text-3xl font-bold">About me</h3>
+      <h3 className="custom-text text-3xl font-bold mb-3">About me</h3>
       <ul className="text-lg ml-6 space-y-2">
         <li className="flex items-start">
           <TriangleRightIcon className="mr-2 h-5 w-5 flex-shrink-0 pt-1" />

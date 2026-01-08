@@ -4,14 +4,12 @@
 
 :root {
   --foreground-rgb: 55, 65, 81;      /* Dark grayish-blue for foreground */
-  --background-start-rgb: 245, 236, 205; 
-  --background-end-rgb: 255, 255, 255;    /* White for background end */
 }
 
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #FBFFF1;
+  background: #fafafa;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -24,13 +22,12 @@ body {
 } */
 
 .custom-text {
-  color: #07995a;
+  color: #059669;
 }
 
-.blog-titles{
-  color: #07995a;
+.blog-titles {
+  color: #059669;
   font-weight: bold;
-
 }
 
 
@@ -39,17 +36,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 14px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
   border-radius: 14px;
   height: 100%;
-  border: 1px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition-duration: 200ms;
+  background: white;
 }
 
-/* styles.css */
+/* Typography */
 h1 {
-  @apply text-2xl; /* Only if you want to apply a specific Tailwind size */
+  @apply text-2xl;
 }
 
 h2 {
@@ -57,18 +54,16 @@ h2 {
 }
 
 h3 {
-  @apply text-lg
+  @apply text-lg;
 }
 
 /* blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
   margin: initial;
 } */
 
-/* styles.css */
-ul{
-  list-style: initial; /* or use 'disc' for ul and 'decimal' for ol if preferred */
-  /* margin: initial; */
-  /* padding: initial; */
+/* Lists */
+ul {
+  list-style: initial;
   list-style-position: inside;
   list-style-type: none;
 }
@@ -77,8 +72,7 @@ ol {
   list-style: decimal;
   margin: initial;
   padding: initial;
-  list-style-position:inherit;
-
+  list-style-position: inherit;
 }
 
 /* global.css */

@@ -1,17 +1,25 @@
+import { BackpackIcon } from "@radix-ui/react-icons";
 import HangmanContainer from "./Hangman/HangmanContainer";
+import Resume from "./Resume";
 
 const Header: React.FC = () => {
     return(
         <>
         <div className="flex flex-col sm:w-full w-[95%] mx-auto">
-            <h1 className="text-lg font-serif">
-                Hello 👋, I am Aman Chhetri, currently an Junior Computer Science Student at the University of Massachusetts Amherst. 
-                I love creating applications that make a positive effect on the world. You can reach me at amanchhetricr7@gmail.com. <strong>Try out my Tech Based Hangman Game!</strong>
-                
+            <h1 className="text-lg">
+                CompSci Student @ UMass Amherst (May 2026). Interested in full stack development and backend systems.
+                <br/>
             </h1>
-            {/* <div className="flex flex-col items-center gap-2">
-                <HangmanContainer />
-            </div> */}
+            <h1 className="text-lg">
+                Check out my Lastest Resume here:{" "}
+          <a href="/resume" rel="noopener noreferrer" className="inline-flex items-center ml-1">
+            <BackpackIcon className='custom-text h-5 w-5 hover:scale-110 transition-transform'/>
+          </a>
+            </h1>
+
+            <h1 className="text-lg">
+                Try out my Tech Based Hangman Game 🎮
+            </h1>
         </div>
         </>
     ) 

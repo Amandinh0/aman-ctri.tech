@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={geist.className}>
-        <div className="main-container mx-auto max-w-2xl">
+        <div className="main-container mx-auto max-w-3xl">
           <Navbar/>
           <Header/>
             {children}

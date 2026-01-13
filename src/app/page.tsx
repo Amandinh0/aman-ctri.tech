@@ -1,4 +1,4 @@
-import AboutMe from "./components/AboutMe";
+import AboutMe from "./components/Experience";
 import getBlogMetadata from '../../utils/getBlogMetadata'
 import BlogList from "./components/BlogList";
 import HangmanContainer from "./components/Hangman/HangmanContainer";

@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 55, 65, 81;      /* Dark grayish-blue for foreground */
+  --foreground-rgb: 229, 231, 235;   /* Light gray for dark mode foreground */
 }
-
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #fafafa;
+  background: #0f172a;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -36,12 +35,16 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
   border-radius: 14px;
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition-duration: 200ms;
-  background: white;
+  background: #1e293b;
+}
+
+.postCard:hover {
+  background: #334155;
 }
 
 /* Typography */

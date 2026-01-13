@@ -2,6 +2,7 @@ import { CameraIcon, GitHubLogoIcon, LinkedInLogoIcon, BackpackIcon } from '@rad
 import * as Nav from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
 import React from 'react';
+import ThemeToggle from './ThemeToggle';
 
 
 const Navbar: React.FC = () => {
@@ -12,7 +13,7 @@ const Navbar: React.FC = () => {
             Aman Chhetri
             </a>
             <Nav.Root className='list-none'>
-            <Nav.List className='flex space-x-4'>
+            <Nav.List className='flex space-x-4 items-center'>
                 <Nav.Item>
                 <Nav.Link asChild>
                     <Link href="https://www.linkedin.com/in/aman-chh" rel="noopener noreferrer" target="_blank">
@@ -28,6 +29,9 @@ const Navbar: React.FC = () => {
                 <Nav.Link href="/resume">
                 <BackpackIcon className='custom-text h-10 w-10 mt-8 mb-4 hover:scale-110 transition-transform'/>
                 </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <ThemeToggle />
                 </Nav.Item>
             </Nav.List>
             </Nav.Root>

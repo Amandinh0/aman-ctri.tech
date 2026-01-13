@@ -6,6 +6,9 @@
   --foreground-rgb: 55, 65, 81;      /* Dark grayish-blue for foreground */
 }
 
+.dark {
+  --foreground-rgb: 229, 231, 235;   /* Light gray for dark mode foreground */
+}
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -13,6 +16,11 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background: #0f172a;
 }
 
 /* @layer utilities {
@@ -42,6 +50,16 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.06);
   transition-duration: 200ms;
   background: white;
+}
+
+.dark .postCard {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+}
+
+.dark .postCard:hover {
+  background: #334155;
 }
 
 /* Typography */

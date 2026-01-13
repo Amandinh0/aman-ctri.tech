@@ -53,7 +53,7 @@ export default function RootLayout({
           <Header/>
             {children}
          
-          <footer className="text-center mt-4 mb-8">
+          <footer className="text-center mt-4 mb-8 text-gray-600 dark:text-gray-400">
             Made with 🖤
           </footer>
         </div>

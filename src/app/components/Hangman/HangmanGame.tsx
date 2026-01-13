@@ -61,10 +61,10 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
 
   return (
     <div role="dialog" className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-lg max-w-lg w-full text-gray-900 dark:text-gray-100">
+      <div className="bg-slate-800 p-6 rounded-lg max-w-lg w-full text-gray-100">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold">Hangman Game</h2>
-          <button onClick={onClose} className="text-2xl hover:text-gray-600 dark:hover:text-gray-300">&times;</button>
+          <button onClick={onClose} className="text-2xl hover:text-gray-300">&times;</button>
         </div>
         
         <div className="mb-4">
@@ -90,10 +90,10 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
               key={letter}
               onClick={() => handleGuess(letter)}
               disabled={gameState.guessedLetters.includes(letter)}
-              className={`p-2 border rounded dark:border-gray-600 ${
+              className={`p-2 border rounded border-gray-600 ${
                 gameState.guessedLetters.includes(letter) 
-                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400' 
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                  ? 'bg-gray-700 text-gray-400' 
+                  : 'hover:bg-gray-700'
               }`}
             >
               {letter}
@@ -116,7 +116,7 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
                   : 'Game Over!'}
               </p>
               {gameState.gameStatus === 'lost' && (
-                <p className="mt-2 text-red-600 dark:text-red-400">
+                <p className="mt-2 text-red-400">
                   The word was: {gameState.currentWord.word}<br/>
                   Your score: {currentScore}
                 </p>
@@ -133,7 +133,7 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
                     gameStatus: 'playing'
                   });
                 }}
-                className="mt-2 bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white px-4 py-2 rounded"
+                className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
               >
                 Play Again
               </button>

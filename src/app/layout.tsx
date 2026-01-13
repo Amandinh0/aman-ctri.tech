@@ -46,14 +46,14 @@ export default function RootLayout({
 
   
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={geist.className}>
         <div className="main-container mx-auto max-w-3xl">
           <Navbar/>
           <Header/>
             {children}
          
-          <footer className="text-center mt-4 mb-8 text-gray-600 dark:text-gray-400">
+          <footer className="text-center mt-4 mb-8 text-gray-400">
             Made with 🖤
           </footer>
         </div>

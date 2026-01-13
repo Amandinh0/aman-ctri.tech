@@ -1,8 +1,7 @@
-import { CameraIcon, GitHubLogoIcon, LinkedInLogoIcon, BackpackIcon } from '@radix-ui/react-icons';
+import { CameraIcon } from '@radix-ui/react-icons';
 import * as Nav from '@radix-ui/react-navigation-menu';
 import Link from 'next/link';
 import React from 'react';
-import ThemeToggle from './ThemeToggle';
 
 
 const Navbar: React.FC = () => {
@@ -16,22 +15,24 @@ const Navbar: React.FC = () => {
             <Nav.List className='flex space-x-4 items-center'>
                 <Nav.Item>
                 <Nav.Link asChild>
-                    <Link href="https://www.linkedin.com/in/aman-chh" rel="noopener noreferrer" target="_blank">
-                    <LinkedInLogoIcon className='custom-text h-10 w-10 mt-8 mb-4 ml-12 hover:scale-110 transition-transform'/>
+                    <Link href="https://www.linkedin.com/in/aman-chh" rel="noopener noreferrer" target="_blank" className='custom-text text-lg mt-8 mb-4 ml-12 hover:underline transition-transform'>
+                    /linkedin
                     </Link>
                 </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link href="https://github.com/Amandinh0" rel="noopener noreferrer" target="_blank">
-                  <GitHubLogoIcon className='custom-text h-10 w-10 mt-8 mb-4 hover:scale-110 transition-transform'/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                <Nav.Link href="/resume">
-                <BackpackIcon className='custom-text h-10 w-10 mt-8 mb-4 hover:scale-110 transition-transform'/>
+                <Nav.Link asChild>
+                    <Link href="https://github.com/Amandinh0" rel="noopener noreferrer" target="_blank" className='custom-text text-lg mt-8 mb-4 hover:underline transition-transform'>
+                    /github
+                    </Link>
                 </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <ThemeToggle />
+                <Nav.Link asChild>
+                    <Link href="/resume" className='custom-text text-lg mt-8 mb-4 hover:underline transition-transform'>
+                    /resume
+                    </Link>
+                </Nav.Link>
                 </Nav.Item>
             </Nav.List>
             </Nav.Root>

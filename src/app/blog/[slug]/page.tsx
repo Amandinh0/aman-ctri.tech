@@ -26,7 +26,7 @@ export default function blogPage(props: any) {
   //console.log(post)
 
   return (
-    <div className='prose dark:prose-invert max-w-none'>
+    <div className='prose prose-invert max-w-none'>
       <article>
         <Markdown >{post.content}</Markdown>
       </article>

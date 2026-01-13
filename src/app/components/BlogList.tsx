@@ -16,10 +16,10 @@ const BlogList: React.FC = () => {
 
     return (
         <div className='flex flex-col sm:w-full w-[95%] mx-auto'>
-            <h2 className='text-3xl font-bold mb-2 py-2 custom-text'>Projects/Publications:</h2>
+            <h2 className='text-3xl font-bold mb-2 py-1 custom-text'>Writeups:</h2>
             {blogMetadata.map((blog, blogIndex) => {
                 return(
-                    <div className='postCard mb-1 hover:scale-[1.02] transition-transform hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg p-3' key={blog.slug}>
+                    <div className='postCard mb-4 hover:scale-[1.02] transition-transform rounded-lg p-3' key={blog.slug}>
                         <BlogPost key={blogIndex} blog={blog}/>
                     </div>
                 )

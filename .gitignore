@@ -40,3 +40,8 @@ src/app/playground/
 __test__/
 words/
 vitest.config.mts
+
+# Antigravity Guide
+antigravity_guide.md
+
+indexing.md

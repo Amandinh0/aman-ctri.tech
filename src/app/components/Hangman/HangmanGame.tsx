@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { HangmanWord, HangmanGameState } from '@/app/types/hangman';
-import wordsList from '@/app/words/words.json';
+import { useState, useEffect } from "react";
+import { HangmanWord, HangmanGameState } from "@/app/types/hangman";
+import wordsList from "@/app/words/words.json";
 
 const MAX_MISTAKES = 6;
 
@@ -11,17 +11,23 @@ const getRandomWord = (): HangmanWord => {
   return {
     word: initialWord.word.toUpperCase(),
     hint: initialWord.hint,
-    category: initialWord.category
+    category: initialWord.category,
   };
 };
 
-export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-    const [currentScore, setCurrentScore] = useState(0);
+export default function HangmanGame({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
+  const [currentScore, setCurrentScore] = useState(0);
   const [gameState, setGameState] = useState<HangmanGameState>(() => ({
     currentWord: getRandomWord(),
     guessedLetters: [],
     mistakes: 0,
-    gameStatus: 'playing'
+    gameStatus: "playing",
   }));
 
   const getNextWord = () => {
@@ -30,21 +36,22 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
     return {
       word: word.word.toUpperCase(),
       hint: word.hint,
-      category: word.category
+      category: word.category,
     };
   };
 
   const handleGuess = (letter: string) => {
     if (gameState.guessedLetters.includes(letter)) return;
-    
+    if (gameState.gameStatus !== "playing") return;
+
     const newGuessedLetters = [...gameState.guessedLetters, letter];
     const isWrong = !gameState.currentWord.word.includes(letter);
     const newMistakes = isWrong ? gameState.mistakes + 1 : gameState.mistakes;
-    
+
     const isWon = gameState.currentWord.word
-      .split('')
-      .every(char => newGuessedLetters.includes(char));
-    
+      .split("")
+      .every((char) => newGuessedLetters.includes(char));
+
     if (isWon) {
       setCurrentScore(currentScore + 1);
     }
@@ -53,20 +60,57 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
       ...gameState,
       guessedLetters: newGuessedLetters,
       mistakes: newMistakes,
-      gameStatus: isWon ? 'won' : newMistakes >= MAX_MISTAKES ? 'lost' : 'playing'
+      gameStatus: isWon
+        ? "won"
+        : newMistakes >= MAX_MISTAKES
+          ? "lost"
+          : "playing",
     });
   };
+
+  useEffect(() => {
+    if (!isOpen || gameState.gameStatus !== "playing") return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Ignore keypresses with modifier keys (like Cmd+R, Ctrl+C, etc.)
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+      const key = event.key.toUpperCase();
+      const ALLOWED_KEYS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*+";
+
+      if (ALLOWED_KEYS.includes(key)) {
+        event.preventDefault();
+        handleGuess(key);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [
+    isOpen,
+    gameState.gameStatus,
+    gameState.guessedLetters,
+    gameState.currentWord,
+    currentScore,
+  ]);
 
   if (!isOpen) return null;
 
   return (
-    <div role="dialog" className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div
+      role="dialog"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
       <div className="bg-slate-800 p-6 rounded-lg max-w-lg w-full text-gray-100">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold">Hangman Game</h2>
-          <button onClick={onClose} className="text-2xl hover:text-gray-300">&times;</button>
+          <button onClick={onClose} className="text-2xl hover:text-gray-300">
+            &times;
+          </button>
         </div>
-        
+
         <div className="mb-4">
           <p>Category: {gameState.currentWord.category}</p>
           <p>Hint: {gameState.currentWord.hint}</p>
@@ -74,63 +118,65 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
 
         {/* Display word with blanks */}
         <div className="mb-4 text-center text-2xl">
-          {gameState.currentWord.word.split('').map((letter, index) => (
+          {gameState.currentWord.word.split("").map((letter, index) => (
             <span key={index} className="mx-1">
-              {gameState.guessedLetters.includes(letter) ? letter : '_'}
+              {gameState.guessedLetters.includes(letter) ? letter : "_"}
             </span>
           ))}
         </div>
 
         {/* Keyboard */}
         <div className="grid grid-cols-7 gap-1">
-          {'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*'
-            .split('')
+          {"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*+"
+            .split("")
             .map((letter) => (
-            <button
-              key={letter}
-              onClick={() => handleGuess(letter)}
-              disabled={gameState.guessedLetters.includes(letter)}
-              className={`p-2 border rounded border-gray-600 ${
-                gameState.guessedLetters.includes(letter) 
-                  ? 'bg-gray-700 text-gray-400' 
-                  : 'hover:bg-gray-700'
-              }`}
-            >
-              {letter}
-            </button>
-          ))}
+              <button
+                key={letter}
+                onClick={() => handleGuess(letter)}
+                disabled={gameState.guessedLetters.includes(letter)}
+                className={`p-2 border rounded border-gray-600 ${
+                  gameState.guessedLetters.includes(letter)
+                    ? "bg-gray-700 text-gray-400"
+                    : "hover:bg-gray-700"
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
         </div>
 
         {/* Game status */}
         <div className="mt-4">
-          <p>Mistakes: {gameState.mistakes} / {MAX_MISTAKES}</p>
+          <p>
+            Mistakes: {gameState.mistakes} / {MAX_MISTAKES}
+          </p>
           <p>Your score: {currentScore}</p>
-          {gameState.gameStatus !== 'playing' && (
+          {gameState.gameStatus !== "playing" && (
             <div className="text-center mt-4">
               <p>
-                {gameState.gameStatus === 'won' 
-                  ? 
-                  <>
-                      Congratulations! Score: {currentScore}
-                    </> 
-                  : 'Game Over!'}
+                {gameState.gameStatus === "won" ? (
+                  <>Congratulations! Score: {currentScore}</>
+                ) : (
+                  "Game Over!"
+                )}
               </p>
-              {gameState.gameStatus === 'lost' && (
+              {gameState.gameStatus === "lost" && (
                 <p className="mt-2 text-red-400">
-                  The word was: {gameState.currentWord.word}<br/>
+                  The word was: {gameState.currentWord.word}
+                  <br />
                   Your score: {currentScore}
                 </p>
               )}
-              <button 
+              <button
                 onClick={() => {
-                  if (gameState.gameStatus === 'lost') {
+                  if (gameState.gameStatus === "lost") {
                     setCurrentScore(0);
                   }
                   setGameState({
                     currentWord: getNextWord(),
                     guessedLetters: [],
                     mistakes: 0,
-                    gameStatus: 'playing'
+                    gameStatus: "playing",
                   });
                 }}
                 className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
@@ -143,4 +189,4 @@ export default function HangmanGame({ isOpen, onClose }: { isOpen: boolean; onCl
       </div>
     </div>
   );
-} 
+}

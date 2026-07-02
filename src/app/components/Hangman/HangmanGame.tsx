@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { HangmanWord, HangmanGameState } from "@/app/types/hangman";
 import wordsList from "@/app/words/words.json";
 
@@ -40,7 +40,7 @@ export default function HangmanGame({
     };
   };
 
-  const handleGuess = (letter: string) => {
+  const handleGuess = useCallback((letter: string) => {
     if (gameState.guessedLetters.includes(letter)) return;
     if (gameState.gameStatus !== "playing") return;
 
@@ -66,7 +66,7 @@ export default function HangmanGame({
           ? "lost"
           : "playing",
     });
-  };
+  }, [gameState, currentScore]);
 
   useEffect(() => {
     if (!isOpen || gameState.gameStatus !== "playing") return;
@@ -91,9 +91,7 @@ export default function HangmanGame({
   }, [
     isOpen,
     gameState.gameStatus,
-    gameState.guessedLetters,
-    gameState.currentWord,
-    currentScore,
+    handleGuess,
   ]);
 
   if (!isOpen) return null;
@@ -101,9 +99,9 @@ export default function HangmanGame({
   return (
     <div
       role="dialog"
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
     >
-      <div className="bg-slate-800 p-6 rounded-lg max-w-lg w-full text-gray-100">
+      <div className="bg-slate-800 p-6 rounded-lg max-w-lg w-full text-gray-100 max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold">Hangman Game</h2>
           <button onClick={onClose} className="text-2xl hover:text-gray-300">
